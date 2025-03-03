@@ -1,0 +1,122 @@
+<?xml version="1.0"?>
+<odoo>
+<record id="view_etudiant_list" model="ir.ui.view">
+    <field name="name">gestion.etudiant.list</field>
+    <field name="model">gestion.etudiant</field>
+    <field name="arch" type="xml">
+        <list string=" Liste des Étudiants">
+            <field name="name" string="Nom et Prénom"/>
+            <field name="num_apogee" string="Numéro Apogée"/>
+            <field name="email" string="Adresse Email"/>
+            <field name="phone" string="Téléphone"/>
+            <field name="date_naissance" string="Date de Naissance"/>
+            <field name="adresse" string="Adresse"/>
+            <field name="filiere_id" string="Filière"/>
+        </list>
+    </field>
+</record>
+
+<record id="view_etudiant_form" model="ir.ui.view">
+    <field name="name">gestion.etudiant.form</field>
+    <field name="model">gestion.etudiant</field>
+    <field name="arch" type="xml">
+        <form string="🎓 Fiche Étudiant">
+            <sheet>
+                <h1><field name="name" placeholder="Nom et Prenom d'étudiant"/></h1>
+
+                <group>
+                    <group>
+                        <field name="num_apogee" string="Numéro Apogée"/>
+                        <field name="filiere_id" string="Filière"/>
+                        <field name="date_naissance" string="Date de Naissance"/>
+                    </group>
+                    <group>
+                        <field name="email" string="Adresse Email"/>
+                        <field name="phone" string="Téléphone"/>
+                        <field name="adresse" string="Adresse"/>
+                    </group>
+                </group>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+<!-- Vue Kanban des étudiants -->
+<record id="view_etudiant_kanban" model="ir.ui.view">
+    <field name="name">gestion.etudiant.kanban</field>
+    <field name="model">gestion.etudiant</field>
+    <field name="arch" type="xml">
+        <kanban string="Étudiants">
+            <field name="name"/>
+            <field name="filiere_id"/>
+            <templates>
+                <t t-name="kanban-box">
+                    <div class="oe_kanban_global_click">
+                        <div class="o_kanban_record_title" style="background-color:#4CAF50; color:white; padding:12px; border-radius:8px;">
+                            <strong><field name="name"/></strong>
+                        </div>
+                        <div style="padding:10px;">
+                            <p><strong>Apogée :</strong> <field name="num_apogee"/></p>
+                            <p><strong>Email :</strong> <field name="email"/></p>
+                            <p><strong>Téléphone :</strong> <field name="phone"/></p>
+                            <p><strong>Filière :</strong> <field name="filiere_id"/></p>
+                        </div>
+                    </div>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+
+<record id="view_module_form" model="ir.ui.view">
+    <field name="name">gestion.module.form</field>
+    <field name="model">gestion.module</field>
+    <field name="arch" type="xml">
+        <form string="Module : [[ object.name ]]">
+            <sheet>
+                <group>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="semestre"/>
+                    <field name="filiere_id"/>
+                    <field name="enseignant_id"/>
+                </group>
+
+                <notebook>
+                    <page string="Session normale">
+                        <group>
+                            <field name="note_ids">
+                                <list editable="bottom" domain="[('session', '=', 'normale')]">
+                                    <field name="etudiant_id" string="Nom de l'Étudiant"/>
+                                    <field name="num_apogee" string="Numéro Apogée"/>
+                                    <field name="note" string="Note"/>
+                                    <field name="etat" string="État"/>
+                                </list>
+                            </field>
+                        </group>
+                    </page>
+
+                    <page string="Session Rattrapage">
+                        <group>
+                            <field name="note_ids">
+                                <list editable="bottom" domain="[('session', '=', 'rattrapage'),('etat', '=', 'RATT')]">
+                                    <field name="etudiant_id" string="Nom de l'Étudiant"/>
+                                    <field name="num_apogee" string="Numéro Apogée"/>
+                                    <field name="note" string="Note"/>
+                                    <field name="etat"  string="État"/>
+                                </list>
+                            </field>
+                        </group>
+                    </page>
+                </notebook>
+            </sheet>
+        </form>
+    </field>
+</record>
+
+
+
+
+
+</odoo>

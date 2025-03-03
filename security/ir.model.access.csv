@@ -1,0 +1,14 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_gestion_etudiant_user","Access Gestion Etudiant User","model_gestion_etudiant","gestion_group_user",1,0,0,0
+"access_gestion_etudiant_manager","Access Gestion Etudiant Manager","model_gestion_etudiant","gestion_group_manager",1,1,1,1
+"access_gestion_enseignant_user","Access Gestion Enseignant User","model_gestion_enseignant","gestion_group_user",1,0,0,0
+"access_gestion_enseignant_manager","Access Gestion Enseignant Manager","model_gestion_enseignant","gestion_group_manager",1,1,1,1
+"access_gestion_module_user","Access Gestion Module User","model_gestion_module","gestion_group_user",1,0,0,0
+"access_gestion_module_manager","Access Gestion Module Manager","model_gestion_module","gestion_group_manager",1,1,1,1
+"access_gestion_filiere_user","Access Gestion Filiere User","model_gestion_filiere","gestion_group_user",1,0,0,0
+"access_gestion_filiere_manager","Access Gestion Filiere Manager","model_gestion_filiere","gestion_group_manager",1,1,1,1
+"access_gestion_presence_user","Access Gestion Presence User","model_gestion_presence","gestion_group_user",1,0,0,0
+"access_gestion_presence_manager","Access Gestion Presence Manager","model_gestion_presence","gestion_group_manager",1,1,1,1
+"access_gestion_note_user","Access Gestion Note User","model_gestion_note","gestion_group_user",1,0,0,0
+"access_gestion_note_manager","Access Gestion Note Manager","model_gestion_note","gestion_group_manager",1,1,1,1
+

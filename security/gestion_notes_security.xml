@@ -1,0 +1,23 @@
+<?xml version="1.0" ?>
+<odoo>
+    <!-- Catégorie du module -->
+    <record id="module_gestion_notes" model="ir.module.category">
+        <field name="name">Gestion des notes</field>
+    </record>
+    
+    <!-- Groupe des Utilisateurs -->
+    <record id="gestion_group_user" model="res.groups">
+        <field name="name">User</field>
+        <field name="category_id" ref="module_gestion_notes"/>
+        <field name="implied_ids" eval="[(4, ref('base.group_user'))]"/>
+    </record>
+    
+    <!-- Groupe des Manageurs -->
+    <record id="gestion_group_manager" model="res.groups">
+        <field name="name">Manager</field>
+        <field name="category_id" ref="module_gestion_notes"/>
+        <field name="implied_ids" eval="[(4, ref('gestion_group_user'))]"/>
+        <!-- Ajout des utilisateurs au groupe Manager -->
+        <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
+    </record>
+</odoo>
